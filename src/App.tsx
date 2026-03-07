@@ -80,7 +80,7 @@ export default function App() {
                         className="max-w-2xl"
                     >
                         <p className="text-xl md:text-2xl text-white/70 mb-12 font-light leading-relaxed">
-                            Bold brands deserve bold design. We build websites and create content that turn heads and drive results.
+                            Bold brands deserve bold design. We build websites and create content that turn heads and drives results.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4">
