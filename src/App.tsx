@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Check, Zap, Layers, Monitor } from 'lucide-react';
+import { ShaderAnimation } from '@/components/ui/shader-animation';
 
 export default function App() {
     return (
@@ -16,7 +17,12 @@ export default function App() {
 
             {/* Hero Section */}
             <section className="relative min-h-screen flex flex-col justify-center px-6 pt-20 pb-12">
-                <div className="max-w-7xl mx-auto w-full">
+                {/* Shader Background */}
+                <div className="absolute inset-0 z-0">
+                    <ShaderAnimation />
+                    <div className="absolute inset-0 bg-black/50" />
+                </div>
+                <div className="relative z-10 max-w-7xl mx-auto w-full">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -52,7 +58,7 @@ export default function App() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1, duration: 1 }}
-                    className="absolute bottom-12 left-6 right-6 flex justify-between items-end text-xs font-mono text-white/40 uppercase tracking-widest"
+                    className="absolute bottom-12 left-6 right-6 z-10 flex justify-between items-end text-xs font-mono text-white/40 uppercase tracking-widest"
                 >
                     <div>Est. 2024</div>
                     <div className="animate-bounce">Scroll Down</div>
