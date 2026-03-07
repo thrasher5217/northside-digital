@@ -69,7 +69,7 @@ export default function App() {
                     >
                         <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-bold leading-[0.9] tracking-tighter mb-8">
                             WE DO <br />
-                            <span className="text-north-accent">DESIGN</span> DIFFERENTLY.
+                            <span className="text-north-accent">DESIGN</span> DIFFERENT.
                         </h1>
                     </motion.div>
 
