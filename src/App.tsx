@@ -1,8 +1,43 @@
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Check, Zap, Layers, Monitor } from 'lucide-react';
 import { ShaderAnimation } from '@/components/ui/shader-animation';
 
+const CAL_LINK = "ty-mcguire-bfmkql/30min";
+
 export default function App() {
+    useEffect(() => {
+        // Load Cal.com embed script
+        (function (C: any, A: string, L: string) {
+            let p = function (a: any, ar: any) { a.q.push(ar); };
+            let d = C.document;
+            C.Cal = C.Cal || function () {
+                let cal = C.Cal;
+                let ar = arguments;
+                if (!cal.loaded) {
+                    cal.ns = {};
+                    cal.q = cal.q || [];
+                    d.head.appendChild(d.createElement("script")).src = A;
+                    cal.loaded = true;
+                }
+                if (ar[0] === L) {
+                    const api = function () { p(api, arguments); };
+                    const namespace = ar[1];
+                    api.q = api.q || [];
+                    typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar);
+                    return;
+                }
+                p(cal, ar);
+            };
+        })(window, "https://app.cal.com/embed/embed.js", "init");
+        (window as any).Cal("init", { origin: "https://cal.com" });
+        (window as any).Cal("ui", {
+            theme: "dark",
+            styles: { branding: { brandColor: "#3b82f6" } },
+            hideEventTypeDetails: false,
+            layout: "month_view",
+        });
+    }, []);
     return (
         <div className="min-h-screen bg-north-black text-north-white overflow-x-hidden selection:bg-north-accent selection:text-white">
             {/* Navigation */}
@@ -10,7 +45,11 @@ export default function App() {
                 <div className="text-xl font-display font-bold tracking-tighter uppercase">
                     Northside Digital
                 </div>
-                <button className="hidden md:block px-6 py-2 border border-white/20 rounded-full text-sm font-medium hover:bg-white hover:text-black transition-colors duration-300">
+                <button
+                    data-cal-link={CAL_LINK}
+                    data-cal-config='{"layout":"month_view"}'
+                    className="hidden md:block px-6 py-2 border border-white/20 rounded-full text-sm font-medium hover:bg-white hover:text-black transition-colors duration-300"
+                >
                     Book a Call
                 </button>
             </nav>
@@ -45,7 +84,11 @@ export default function App() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <button className="px-8 py-4 bg-white text-black font-bold rounded-full flex items-center justify-center gap-2 hover:bg-north-accent hover:text-white transition-colors duration-300 group">
+                            <button
+                                data-cal-link={CAL_LINK}
+                                data-cal-config='{"layout":"month_view"}'
+                                className="px-8 py-4 bg-white text-black font-bold rounded-full flex items-center justify-center gap-2 hover:bg-north-accent hover:text-white transition-colors duration-300 group"
+                            >
                                 Book a Call
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </button>
@@ -155,7 +198,11 @@ export default function App() {
                     <p className="text-xl text-white/60 mb-12 max-w-2xl mx-auto">
                         Stop wasting time with agencies that don't get it. Let's build something real.
                     </p>
-                    <button className="px-10 py-5 bg-white text-black text-lg font-bold rounded-full hover:bg-north-accent hover:text-white transition-all duration-300 transform hover:scale-105">
+                    <button
+                        data-cal-link={CAL_LINK}
+                        data-cal-config='{"layout":"month_view"}'
+                        className="px-10 py-5 bg-white text-black text-lg font-bold rounded-full hover:bg-north-accent hover:text-white transition-all duration-300 transform hover:scale-105"
+                    >
                         Book a Call
                     </button>
                 </div>
