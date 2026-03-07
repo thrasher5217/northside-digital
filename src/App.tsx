@@ -68,8 +68,8 @@ export default function App() {
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-bold leading-[0.9] tracking-tighter mb-8">
-                            SHORT FORM <br />
-                            <span className="text-north-accent">CONTENT</span> AT SCALE.
+                            WE DO <br />
+                            <span className="text-north-accent">DESIGN</span> DIFFERENTLY.
                         </h1>
                     </motion.div>
 
