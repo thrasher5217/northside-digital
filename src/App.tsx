@@ -127,7 +127,7 @@ export default function App() {
                                     <Layers className="w-8 h-8 text-white/40 group-hover:text-north-accent transition-colors" />
                                 </div>
                                 <p className="text-white/70 leading-relaxed">
-                                    Built for volume. We have the systems and processes to produce high-quality short-form content consistently. TikTok, Reels, Shorts — we handle the production so you can handle the growth.
+                                    Built for volume. We have the systems and processes to produce high-quality short-form content consistently. TikTok, Reels, Shorts - we handle the production so you can handle the growth.
                                 </p>
                             </div>
 
